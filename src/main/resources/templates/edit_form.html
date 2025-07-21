@@ -1,0 +1,29 @@
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+<br/><br/><br/><br/>
+<h1 style="color:#675C5A;text-align:center">Student Register Form</h1><br/><br/><br/>
+<table align="center" bgcolor="#CDBCA8">
+	<form th:action="@{/student/edit}" method="post" th:object="${student}">
+	    <tr>
+			<td>Student Number</td>
+			<td><input type="text" th:field="*{sno}" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>Student Name</td>
+			<td><input type="text" th:field="*{sname}"/></td>
+		</tr>
+		<tr>
+			<td>Student Age</td>
+			<td><input type="text" th:field="*{sage}"/></td>
+		</tr>
+		<tr>
+			<td>Student Gender</td>
+			<td><input type="text" th:field="*{sgender}"/></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="Edit Student"/></td>
+		</tr>
+		
+	</form>
+</table>

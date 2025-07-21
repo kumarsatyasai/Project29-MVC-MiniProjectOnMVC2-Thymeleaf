@@ -1,0 +1,35 @@
+
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body bgcolor="#CDBCA8">
+<br/><br/><br/><br/><br/><br/>
+<h1 style="color:#201E1F;text-align: center">Report Of Students</h1>
+<div th:if="${!studentsList.empty}">
+		<table border="0"   align="center">
+			<tr style="color:#CDBCA8;background-color: #675C5A;text-align: center">
+				<th>SNUMBER</th><th>SNAME</th><th>SAGE</th><th>SGENDER</th><th>Operations</th>
+			</tr>
+			
+				<tr style="color:#CDBCA8;background-color: #675C5A;text-align: center" th:each="stud:${studentsList}">
+					<td><span th:text="${stud.sno}"></span></td>
+					<td><span th:text="${stud.sname}"></span></td>
+					<td><span th:text="${stud.sage}"></span></td>
+					<td><span th:text="${stud.sgender}"></span></td>
+					<td>&nbsp;<a th:href="@{/student/editform(sno=${stud.sno})}" style="color:white">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;<a th:href="@{/student/delete(sno=${stud.sno})}" style="color:white">Delete</a>&nbsp;</td>
+				</tr>
+		</table>
+
+</div>
+<div th:if="${studentsList.empty}">
+	<h1 style="color:red;text-align:center">No Student Data Found</h1>
+</div>
+<br/><br/><br/>
+
+<h1 style="color:#675C5A;text-align:center"><span th:text="${resultMsg}"></h1>
+<h1 style="color:#675C5A;text-align:center"><span th:text="${editResult}"></h1>
+<h1 style="color:#675C5A;text-align:center"><span th:text="${deleteResult}"></h1>
+<br/>
+<center><button style=" background-color:#675C5A;color:cyan ;border:none;width:120px;height:40px"><a th:href="@{/student/launchregisterform}" style="text-decoration:none;color:white">Register</a></button></center>
+</body>
